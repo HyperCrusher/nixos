@@ -6,15 +6,17 @@
 Welcome! This repo holds the configuration for my NixOS system(s).
 
 It's a complete rewrite of a previous attempt that got... well, let's just say "overly ambitious". I tried managing *everything* through Nix, including every single app config file, and it became a pain.
+
 The file-structure has been made much simply and flatter without sacraficing its modularity. The previous system was modular for the sake of it where as this structure is modular where it makes sense.
 
 * Keep It Simple
 
 The core idea now is:
-1.  **This repo manages the *system*:** Installing packages, setting up system services, hardware config, basic user setup, etc.
-2.  **Application configs (dotfiles) live elsewhere:** My detailed configs for Emacs, Zsh, Hyprland themes/keybinds, etc., are separate.
+1.  *This repo manages the *system*:* Installing packages, setting up system services, hardware config, basic user setup, etc.
+2.  *Application configs (dotfiles) live elsewhere:* My detailed configs for Emacs, Zsh, Hyprland themes/keybinds, etc., are separate.
 
-**Where are the dotfiles?**
+*Where are the dotfiles?*
+
 Right here: [[https://github.com/hypercrusher/dotfiles][dotfiles]]
 
 This separation makes both parts easier to manage. System updates via `nixos-rebuild` are for the system, and tweaking my editor doesn't require a full rebuild.
@@ -40,17 +42,17 @@ Those belong in the [[https://github.com/hypercrusher/dotfiles][dotfiles repo]].
 
 * Why the Change?
 
-- **Simpler:** Nix config focuses on its strengths.
-- **Faster:** Dotfile changes don't need `nixos-rebuild`.
-- **Cleaner:** Less entanglement between system and app configs.
+- *Simpler:* Nix config focuses on its strengths.
+- *Faster:* Dotfile changes don't need `nixos-rebuild`.
+- *Cleaner:* Less entanglement between system and app configs.
 
 * Structure & Usage
 
 This setup uses Nix Flakes. You'll typically find:
-- `flake.nix`: Inputs and outputs.
-- `config.nix` / `common/`: System-level settings.
-- `hosts/{machine}`: for machine-specific stuff.
-- `hosts/{machine}/home.nix`: for User-level settings managed by Nix (via Home Manager).
+- =flake.nix=: Inputs and outputs.
+- =config.nix= / `common/`: System-level settings.
+- =hosts/{machine}=: for machine-specific stuff.
+- =hosts/{machine}/home.nix=: for User-level settings managed by Nix (via Home Manager).
 
 To apply (mostly for my reference):
 #+BEGIN_SRC bash
@@ -61,7 +63,7 @@ sudo nixos-rebuild boot --flake .#home-desktop
 *** Installing
 
 Included is a install.sh script that should make it simple to install this config, taking care of generating the hardware config adding it to git to avoid file not found errors and building the config
-`./install.sh home-desktop` for example
+~./install.sh home-desktop~ for example
 
 
 * That's It!
