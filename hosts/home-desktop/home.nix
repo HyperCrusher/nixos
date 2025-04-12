@@ -35,8 +35,7 @@ in
     source = "${firejailedWps}/bin/writer";
     executable = true;
   };
-  home.file.".local/bin/presentation" = {
-    source = "${firejailedWpp}/bin/powerpoint";
+  home.file.".local/bin/presentation" = { source = "${firejailedWpp}/bin/powerpoint";
     executable = true;
   };
   home.file.".local/bin/pdf" = {
@@ -55,8 +54,11 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [
-      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      pkgs.hyprlandPlugins.hyprsplit
     ];
+    extraConfig = ''
+    source = ~/.config/hypr/hyprland-nix.conf
+    '';
   };
 
   programs = {

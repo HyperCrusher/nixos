@@ -6,10 +6,6 @@
     wpsFonts.url = "github:hypercrusher/wpsfonts";
     gtk-themes.url = "github:hypercrusher/gtk-themes";
     hyprland.url = "github:hyprwm/Hyprland";
-    split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
-      inputs.hyprland.follows = "hyprland";
-    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
