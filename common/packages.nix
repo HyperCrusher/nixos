@@ -1,4 +1,5 @@
 { pkgs
+, inputs
 , ...
 }:
 let
@@ -49,9 +50,8 @@ let
     krita
     mpv
     pavucontrol
-    rofi
-    vivaldi
-    vivaldi-ffmpeg-codecs
+    rofi-wayland
+    firefox
     wget
     curl
   ];
