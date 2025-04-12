@@ -28,7 +28,11 @@
       "btrfs"
     ];
     loader = {
-      timeout = 300;
+      grub = {
+	efiSupport = true;
+	timeoutStyle = "menu";
+      };
+      timeout = 30;
     };
   };
 
