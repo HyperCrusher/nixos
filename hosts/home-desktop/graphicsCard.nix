@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     graphics = {
