@@ -33,7 +33,6 @@ let
     man
     man-pages
     monolith
-    nushell
     oh-my-posh
     pfetch
     ripgrep
@@ -43,6 +42,7 @@ let
     unrar
     unzip
     zoxide
+    zsh
   ];
 
   applications = with pkgs; [
@@ -77,6 +77,7 @@ in
       enable = true;
     };
     udevil.enable = true;
+    zsh.enable = true;
   };
 
   services = {

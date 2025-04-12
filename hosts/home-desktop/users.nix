@@ -4,7 +4,7 @@
     users = {
       Hyper = {
         isNormalUser = true;
-        shell = pkgs.nushell;
+        shell = pkgs.zsh;
         home = "/home/hyper";
         description = "Hyper";
         initialPassword = "changeme";
