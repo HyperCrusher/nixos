@@ -19,6 +19,9 @@
       pkgs.hyprlandPlugins.hyprsplit
     ];
     extraConfig = ''
+    monitor=DP-2,2560x1440@144,auto-right,1
+    monitor=DP-3,2560x1440@144,auto-left,1
+
     source = ~/.config/hypr/hyprland-nix.conf
     '';
   };
