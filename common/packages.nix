@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-Emacs = with pkgs; ((emacsPackagesFor emacs-gtk).emacsWithPackages (epkgs: [
+Emacs = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
   epkgs.vterm
   epkgs.org
   epkgs.org-modern
