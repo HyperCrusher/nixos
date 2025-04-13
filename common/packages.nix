@@ -1,8 +1,13 @@
-{ pkgs
-, inputs
-, ...
-}:
+{ pkgs, ... }:
 let
+Emacs = with pkgs; ((emacsPackagesFor emacs-gtk).emacsWithPackages (epkgs: [
+  epkgs.vterm
+  epkgs.org
+  epkgs.org-modern
+  epkgs.ob-kotlin
+  epkgs.org-table-sticky-header
+]));
+
   systemTools = with pkgs; [
     bottom
     btrfs-progs
@@ -15,12 +20,6 @@ let
     upower
     waypipe
     woeusb
-    #for emacs
-    cmake
-    libtool
-    libvterm
-    gnumake
-    gcc
   ];
 
   fileTools = with pkgs; [
@@ -34,6 +33,7 @@ let
     man
     man-pages
     monolith
+    zsh
     oh-my-posh
     pfetch
     ripgrep
@@ -43,7 +43,6 @@ let
     unrar
     unzip
     zoxide
-    zsh
   ];
 
   applications = with pkgs; [
@@ -82,6 +81,7 @@ in
 
   services = {
     emacs = {
+      package = Emacs;
       enable = true;
       defaultEditor = true;
     };
@@ -102,5 +102,7 @@ in
   environment.systemPackages =
     systemTools ++
     fileTools ++
-    applications;
+    applications ++
+    [ Emacs ];
 }
+
