@@ -2,10 +2,6 @@
 let
 Emacs = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
   epkgs.vterm
-  epkgs.org
-  epkgs.org-modern
-  epkgs.ob-kotlin
-  epkgs.org-table-sticky-header
 ]));
 
   systemTools = with pkgs; [
