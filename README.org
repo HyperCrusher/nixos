@@ -1,7 +1,6 @@
-#+TITLE: My NixOS Config 
 #+AUTHOR: Hyper
 
-* Hey! This is My NixOS Setup
+* My NixOS Setup
 
 Welcome! This repo holds the configuration for my NixOS system(s).
 
