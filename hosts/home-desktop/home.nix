@@ -6,6 +6,10 @@
     stateVersion = "23.11";
   };
 
+  imports = [
+    ./DesktopEntries
+  ];
+
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];

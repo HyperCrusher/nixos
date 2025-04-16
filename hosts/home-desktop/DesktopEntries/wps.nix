@@ -83,9 +83,10 @@ let
     "wps-office-wps"
   ];
 
-  disableEntries = lib.listToAttrs (map (name:
-    lib.nameValuePair name {
-      settings.NoDisplay = true;
+  disableEntries = lib.listToAttrs (map (entryName:
+    lib.nameValuePair entryName {
+      name = entryName;
+      settings.NoDisplay = "true";
     }
   ) disableList);
 
