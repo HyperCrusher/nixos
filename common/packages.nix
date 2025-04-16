@@ -1,9 +1,5 @@
 { pkgs, ... }:
 let
-Emacs = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
-  epkgs.vterm
-]));
-
   systemTools = with pkgs; [
     bottom
     btrfs-progs
@@ -50,9 +46,9 @@ Emacs = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
     wget
     curl
   ];
-
 in
 {
+  
   programs = {
     git = {
       enable = true;
@@ -77,7 +73,6 @@ in
 
   services = {
     emacs = {
-      package = Emacs;
       enable = true;
       defaultEditor = true;
     };
@@ -99,6 +94,14 @@ in
     systemTools ++
     fileTools ++
     applications ++
-    [ Emacs ];
+    [(pkgs.emacsWithPackagesFromUsePackage {
+      package = pkgs.emacs-igc-pgtk;
+      defaultInitFile = false;
+      config = "";
+      alwaysEnsure = true;
+      extraEmacsPackages = epkgs: [
+        epkgs.vterm
+      ];
+    })];
 }
 
