@@ -5,7 +5,6 @@ let
     btrfs-progs
     nfs-utils
     ntfs3g
-    p7zip
     power-profiles-daemon
     smartmontools
     stow
@@ -32,8 +31,8 @@ let
     rsync
     tldr
     tree
-    unrar
-    unzip
+    p7zip-rar
+    rar
     zoxide
   ];
 
