@@ -1,4 +1,9 @@
-{ pkgs, inputs, system, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     kitty
@@ -19,8 +24,8 @@
   services.xserver.enable = false;
 
   programs.hyprland = {
-    package = inputs.hyprland.packages.${system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland;
+    package = pkgs.hyprland;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
     enable = true;
     xwayland.enable = true;
   };

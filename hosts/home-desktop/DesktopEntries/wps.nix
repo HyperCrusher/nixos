@@ -1,15 +1,16 @@
 { pkgs, lib, ... }:
 
 let
-  firejailWrapper = {
-    pkg,
-    oldBin,
-    newBin,
-    extraArgs ? [],
-    desktopName,
-    desktopIcon ? null,
-    desktopCategories ? [ "Office" ],
-  }:
+  firejailWrapper =
+    {
+      pkg,
+      oldBin,
+      newBin,
+      extraArgs ? [ ],
+      desktopName,
+      desktopIcon ? null,
+      desktopCategories ? [ "Office" ],
+    }:
     let
       originalExePath = "${pkg}/bin/${oldBin}";
 
@@ -45,7 +46,10 @@ let
     newBin = "excel";
     desktopName = "Excel";
     desktopIcon = "wps-office-et";
-    desktopCategories = [ "Office" "Spreadsheet" ];
+    desktopCategories = [
+      "Office"
+      "Spreadsheet"
+    ];
   };
 
   Word = firejailWrapper {
@@ -54,7 +58,10 @@ let
     newBin = "word";
     desktopName = "Word";
     desktopIcon = "wps-office-wps";
-    desktopCategories = [ "Office" "WordProcessor" ];
+    desktopCategories = [
+      "Office"
+      "WordProcessor"
+    ];
   };
 
   PowerPoint = firejailWrapper {
@@ -63,7 +70,10 @@ let
     newBin = "powerpoint";
     desktopName = "PowerPoint";
     desktopIcon = "wps-office-wpp";
-    desktopCategories = [ "Office" "Presentation" ];
+    desktopCategories = [
+      "Office"
+      "Presentation"
+    ];
   };
 
   Pdf = firejailWrapper {
@@ -72,7 +82,11 @@ let
     newBin = "pdf";
     desktopName = "Pdf Viewer";
     desktopIcon = "wps-office-pdf";
-    desktopCategories = [ "Office" "Viewer" "Graphics" ];
+    desktopCategories = [
+      "Office"
+      "Viewer"
+      "Graphics"
+    ];
   };
 
   disableList = [
@@ -83,12 +97,15 @@ let
     "wps-office-wps"
   ];
 
-  disableEntries = lib.listToAttrs (map (entryName:
-    lib.nameValuePair entryName {
-      name = entryName;
-      settings.NoDisplay = "true";
-    }
-  ) disableList);
+  disableEntries = lib.listToAttrs (
+    map (
+      entryName:
+      lib.nameValuePair entryName {
+        name = entryName;
+        settings.NoDisplay = "true";
+      }
+    ) disableList
+  );
 
 in
 {
@@ -101,21 +118,22 @@ in
     Pdf.package
   ];
 
-  xdg.desktopEntries =
-    {
-      excel = Excel.desktopEntry;
-      word = Word.desktopEntry;
-      powerpoint = PowerPoint.desktopEntry;
-      pdf = Pdf.desktopEntry;
-    } // disableEntries;
+  xdg.desktopEntries = {
+    excel = Excel.desktopEntry;
+    word = Word.desktopEntry;
+    powerpoint = PowerPoint.desktopEntry;
+    pdf = Pdf.desktopEntry;
+  } // disableEntries;
 
-   xdg.mimeApps.defaultApplications = {
-     "application/vnd.ms-excel" = [ "excel.desktop" ];
-     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "excel.desktop" ];
-     "application/msword" = [ "word.desktop" ];
-     "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "word.desktop" ];
-     "application/vnd.ms-powerpoint" = [ "powerpoint.desktop" ];
-     "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "powerpoint.desktop" ];
-     "application/pdf" = [ "pdf.desktop" ];
-   };
+  xdg.mimeApps.defaultApplications = {
+    "application/vnd.ms-excel" = [ "excel.desktop" ];
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "excel.desktop" ];
+    "application/msword" = [ "word.desktop" ];
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "word.desktop" ];
+    "application/vnd.ms-powerpoint" = [ "powerpoint.desktop" ];
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [
+      "powerpoint.desktop"
+    ];
+    "application/pdf" = [ "pdf.desktop" ];
+  };
 }

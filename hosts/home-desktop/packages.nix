@@ -50,6 +50,7 @@
     android-file-transfer
     android-tools
     ani-cli
+    monero-gui
     bitcoin
     discord
     ghostty

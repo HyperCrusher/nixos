@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
-, system
-, ...
+{
+  pkgs,
+  inputs,
+  system,
+  ...
 }:
 {
   environment = {

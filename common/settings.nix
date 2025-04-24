@@ -1,4 +1,6 @@
-{ ...
+{
+  pkgs,
+  ...
 }:
 {
   nix.settings = {
@@ -21,6 +23,12 @@
     };
   };
 
+  security.wrappers = {
+    firejail = {
+      source = "${pkgs.firejail.out}/bin/firejail";
+    };
+  };
+
   boot = {
     tmp.cleanOnBoot = true;
     supportedFilesystems = [
@@ -29,8 +37,8 @@
     ];
     loader = {
       grub = {
-	efiSupport = true;
-	timeoutStyle = "menu";
+        efiSupport = true;
+        timeoutStyle = "menu";
       };
       timeout = 30;
     };

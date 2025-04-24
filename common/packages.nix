@@ -47,7 +47,7 @@ let
   ];
 in
 {
-  
+
   programs = {
     git = {
       enable = true;
@@ -90,17 +90,18 @@ in
   };
 
   environment.systemPackages =
-    systemTools ++
-    fileTools ++
-    applications ++
-    [(pkgs.emacsWithPackagesFromUsePackage {
-      package = pkgs.emacs-igc-pgtk;
-      defaultInitFile = false;
-      config = "";
-      alwaysEnsure = true;
-      extraEmacsPackages = epkgs: [
-        epkgs.vterm
-      ];
-    })];
+    systemTools
+    ++ fileTools
+    ++ applications
+    ++ [
+      (pkgs.emacsWithPackagesFromUsePackage {
+        package = pkgs.emacs-igc-pgtk;
+        defaultInitFile = false;
+        config = "";
+        alwaysEnsure = true;
+        extraEmacsPackages = epkgs: [
+          epkgs.vterm
+        ];
+      })
+    ];
 }
-
