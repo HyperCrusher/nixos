@@ -71,11 +71,6 @@ in
   };
 
   services = {
-    emacs = {
-      enable = true;
-      defaultEditor = true;
-    };
-
     pipewire = {
       enable = true;
       alsa.enable = true;

@@ -13,8 +13,8 @@
     overlays = [
       (import (
         builtins.fetchTarball {
-          url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-          sha256 = "0wkwkyji171h3xpv8jaj46bzjlwn5kk21c01fib44zayx9z18yb9";
+          url = "https://github.com/nix-community/emacs-overlay/archive/7e630e5c5e5b860f89d05a64129e51f342766b70.tar.gz";
+          sha256 = "1hlzc1ylc8a68xdy1750il0rvjdv5x40j0c2rq6gnxnpp03xkw31";
         }
       ))
     ];
