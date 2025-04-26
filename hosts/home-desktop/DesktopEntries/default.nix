@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./wps.nix
     ./syspower.nix
+    ./flatpak.nix
   ];
 }

@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ ... }:
 {
   nix.settings = {
     auto-optimise-store = true;
@@ -20,12 +17,6 @@
       EDITOR = "nvim";
       _JAVA_AWT_WM_NONREPARENTING = "1";
       XCURSOR_SIZE = "24";
-    };
-  };
-
-  security.wrappers = {
-    firejail = {
-      source = "${pkgs.firejail.out}/bin/firejail";
     };
   };
 

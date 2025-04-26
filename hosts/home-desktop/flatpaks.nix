@@ -7,6 +7,11 @@ let
   ];
 in
 {
+
+  environment.systemPackages = with pkgs; [
+    flatpak
+  ];
+
   system.userActivationScripts.flatpakManagement = {
     text = ''
       ${pkgs.flatpak}/bin/flatpak remote-add --if-not-exists flathub \

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   logoutScript = pkgs.writeShellScriptBin "logout-wrapper" ''
     #!${pkgs.stdenv.shell}

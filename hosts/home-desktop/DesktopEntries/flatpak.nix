@@ -1,14 +1,14 @@
 { pkgs, ... }:
 {
   xdg.desktopEntries = {
-    reboot = {
+    flatseal = {
       name = "Flatseal";
       exec = "${pkgs.flatpak}/bin/flatpak run com.github.tchx84.Flatseal";
       terminal = false;
       type = "Application";
     };
 
-    shutdown = {
+    wps = {
       name = "Office";
       exec = "${pkgs.flatpak}/bin/flatpak run com.wps.Office";
       terminal = false;

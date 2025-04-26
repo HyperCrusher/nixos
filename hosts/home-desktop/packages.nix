@@ -15,10 +15,6 @@
 
     virt-manager.enable = true;
 
-    firejail = {
-      enable = true;
-    };
-
     gamemode = {
       enable = true;
       enableRenice = true;
@@ -60,6 +56,5 @@
     telegram-desktop
     tor-browser-bundle-bin
     qbittorrent
-    wpsoffice
   ];
 }
