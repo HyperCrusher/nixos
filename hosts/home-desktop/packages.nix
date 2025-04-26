@@ -48,7 +48,10 @@
     ani-cli
     monero-gui
     bitcoin
-    discord
+    vesktop
+    jellyfin
+    jellyfin-web
+    jellyfin-ffmpeg
     ghostty
     signal-desktop
     slack
